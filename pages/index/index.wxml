@@ -1,0 +1,14 @@
+<!--index.wxml-->
+<view class="container">
+  <view bindtap="tapframe" class="img-frame">
+    <image class="img" mode="aspectFill" src="{{ img_src }}"></image>
+    <view class="action-bar">
+      <view class="more-action" catchtap="moreAction">
+        <image style="width: 32px; height: 32px;" src="../../assets/more.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class="button-gan-outer">
+    <view class="button-gan-inner" bindtap="ganImg" style="background: {{ shutter_color }};"></view>
+  </view>
+</view>

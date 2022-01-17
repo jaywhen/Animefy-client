@@ -11,4 +11,18 @@
   <view class="button-gan-outer">
     <view class="button-gan-inner" bindtap="ganImg" style="background: {{ shutter_color }};"></view>
   </view>
+  
+  <!-- about-dialog -->
+  <about-dialog title="Animefy" show="{{ show }}">
+    <view slot="desc">
+      <view class="about-desc">
+        <view>Powered by: </view>
+        <view class="about-powered-by">- AnimeGAN: A Novel Lightweight GAN for Photo Animation</view>
+        <view class="about-powered-by">- github@bryandlee/animegan2-pytorch (MIT license)</view>
+      </view>
+    </view>
+    <view slot="footer" class="about-copyright">
+      © 2022 Jaywhen
+    </view>
+  </about-dialog>
 </view>

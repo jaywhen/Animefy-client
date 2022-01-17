@@ -5,7 +5,8 @@ Page({
   data: {
     shutter_color: "#eeeeee",
     uploader_stat: 0,
-    img_src: "../../assets/camera.png"
+    img_src: "../../assets/camera.png",
+    show: false
   },
   tapframe(e) {
     let { uploader_stat } = this.data
@@ -51,10 +52,8 @@ Page({
               }
             })
           } else if(res.tapIndex === 1) {
-            wx.showModal({
-              title: "关于",
-              content: "",
-              showCancel: false
+            that.setData({
+              show: true
             })
           }
         },
@@ -64,13 +63,17 @@ Page({
       })
     } else {
       wx.showActionSheet({
-        itemList: ['🗑️删除图片'],
+        itemList: ['🗑️删除图片', '关于'],
         success (res) {
           console.log(res.tapIndex)
           if(res.tapIndex === 0) {
             that.setData({
               uploader_stat: 0,
               img_src: "../../assets/camera.png"
+            })
+          } else if(res.tapIndex === 1) {
+            that.setData({
+              show: true
             })
           }
         },

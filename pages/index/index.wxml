@@ -3,26 +3,33 @@
   <view bindtap="tapframe" class="img-frame">
     <image class="img" mode="aspectFill" src="{{ img_src }}"></image>
     <view class="action-bar">
-      <view class="more-action" catchtap="moreAction">
-        <image style="width: 32px; height: 32px;" src="../../assets/more.png"></image>
+      <view catchtap="moreAction">
+        <image style="width: 28px; height: 28px;" src="../../assets/more.png"></image>
       </view>
     </view>
   </view>
+
+  <!-- <view class="radio-box">
+    <view wx:for="{{radioItems}}" class="{{item.theme}}">{{item.name}}</view>
+  </view> -->
+
   <view class="button-gan-outer">
     <view class="button-gan-inner" bindtap="ganImg" style="background: {{ shutter_color }};"></view>
   </view>
-  
   <!-- about-dialog -->
   <about-dialog title="Animefy" show="{{ show }}">
     <view slot="desc">
       <view class="about-desc">
         <view>Powered by: </view>
-        <view class="about-powered-by">- AnimeGAN: A Novel Lightweight GAN for Photo Animation</view>
-        <view class="about-powered-by">- github@bryandlee/animegan2-pytorch (MIT license)</view>
+        <view class="about-item">- AnimeGAN: A Novel Lightweight GAN for Photo Animation</view>
+        <view class="about-item">- github@bryandlee/animegan2-pytorch (MIT license)</view>
+        <view>Source code: </view>
+        <view class="about-item">- Miniprogram: github@jaywhen/Animefy-client</view>
+        <view class="about-item">- Backend: github@jaywhen/Animefy-server</view>
       </view>
     </view>
     <view slot="footer" class="about-copyright">
-      © 2022 Jaywhen
+      Jaywhen © 2022
     </view>
   </about-dialog>
 </view>

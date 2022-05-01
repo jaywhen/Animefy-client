@@ -6,7 +6,14 @@ Page({
     shutter_color: "#eeeeee",
     uploader_stat: 0,
     img_src: "../../assets/camera.png",
-    show: false
+    show: false,
+    img_src: "../../assets/welcome.png",
+    cWidth: 0,
+    cHeight: 0,
+    radioItems: [
+      {name: '风景', value: 'scenery', theme: "radio"},
+      {name: '人像', value: 'portrait', theme: "radio checked"}
+    ],
   },
   tapframe(e) {
     let { uploader_stat } = this.data
@@ -65,7 +72,6 @@ Page({
       wx.showActionSheet({
         itemList: ['🗑️删除图片', '关于'],
         success (res) {
-          console.log(res.tapIndex)
           if(res.tapIndex === 0) {
             that.setData({
               uploader_stat: 0,
@@ -94,23 +100,29 @@ Page({
       that.setData({
         shutter_color: "#eeeeee"
       })
-      console.log("hi")
       const fileManager = wx.getFileSystemManager()
       const { img_src } = this.data
       let img_base64 = fileManager.readFileSync(img_src, 'base64')
       let data = {
         "img_base64": img_base64
       }
+      wx.showLoading({
+        title: 'Ganning...',
+        title: '稍等 10~15s⏱️',
+      })
       wx.request({
         url: `${app.globalData.server}/api/anime`,
         method: 'POST',
         data: data,
         success(res) {
-          console.log(res)
           that.setData({
             shutter_color: "#cf0808",
             btn_stat: false,
             img_src: 'data:image/png;base64,' + res.data
+          })
+          wx.hideLoading()
+          wx.showToast({
+            title: 'bingo!',
           })
         },
         fail(err) {
@@ -118,8 +130,19 @@ Page({
         }
       })
     }
-    console.log("hei")
+  },
+  radioChange(e) {
+    console.log(e)
+  },
+  onShareAppMessage() {
+    return {
+      title: 'Animefy every moment',
+      imageUrl: '../../assets/showimg.png'
+    }
   },
   onLoad() {
+    wx.showShareMenu({
+      menus: ['shareAppMessage', 'shareTimeline'],
+    })
   }
 })

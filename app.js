@@ -4,6 +4,6 @@ App({
   },
   globalData: {
     userInfo: null,
-    server: 'http://127.0.0.1:8000'
+    server: 'https://127.0.0.0:8000'
   }
 })

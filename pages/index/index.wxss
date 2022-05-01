@@ -1,12 +1,12 @@
 /**index.wxss**/
 .container {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .img-frame {
-  width: 200px;
-  height: 240px;
+  width: 240px;
+  height: 280px;
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 10px;
@@ -36,15 +36,10 @@
   justify-content: flex-end
 }
 
-.more-action {
-  width: 32px;
-  height: 32px;
-}
-
 .button-gan-outer {
   display: flex;
   justify-content: center;
-  margin-top: 3em;
+  margin-top: 1rem;
   width: 90px;
   height: 90px;
 
@@ -69,7 +64,7 @@
   line-height: 30px;
 }
 
-.about-powered-by {
+.about-item {
   font-style: italic;
   font-size: 11px;
   text-decoration: underline;
@@ -79,4 +74,28 @@
 .about-copyright {
   font-size: 10px;
   color: #979797;
+}
+
+.radio-box {
+  margin-top: 2rem;
+  width: 240px;
+  height: 50px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #2b2b2b;
+}
+
+.radio {
+  width: 100px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+.checked {
+  border: #7c7c7c solid 1px;
+  border-radius: 10px;
 }
